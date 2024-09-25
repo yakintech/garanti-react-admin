@@ -1,22 +1,31 @@
 import { Button } from '@mui/material'
 import { DataGridPremium, GridColDef, GridRenderCellParams, GridToolbar } from '@mui/x-data-grid-premium'
 import { trTR } from '@mui/x-data-grid/locales';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { axiosInstance } from '../../../config/axiosInstance'
 import { useNavigate } from 'react-router-dom';
+import { useProducts } from '../../../hooks/data/product/useProducts';
 
 function List() {
 
-  const [products, setproducts] = useState([])
+  const { products, loading, error } = useProducts()
 
-  useEffect(() => {
 
-    axiosInstance.get('/products')
-      .then(response => {
-        setproducts(response.data)
-      })
 
-  }, [])
+
+  // const [products, setproducts] = useState([])
+
+  // useEffect(() => {
+
+  //   axiosInstance.get('/products')
+  //     .then(response => {
+  //       setproducts(response.data)
+  //     })
+  //     .catch(error => {
+  //       console.log(error)
+  //     })
+
+  // }, [])
 
 
   const navigate = useNavigate()
@@ -27,7 +36,7 @@ function List() {
         .then(response => {
           axiosInstance.get('/products')
             .then(response => {
-              setproducts(response.data)
+              //setproducts(response.data)
             })
         })
     }
@@ -75,20 +84,24 @@ function List() {
 
 
   return <>
-    <Button variant="contained" color="info" onClick={() => navigate("/products/add")}>Add</Button>
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGridPremium
-        rows={products}// rows yani bu datagridde gösterilecek veriler( data source)
-        columns={columns}// columns yani bu datagridde gösterilecek kolonlar
-        slots={{ toolbar: GridToolbar }}
-        slotProps={{
-          toolbar: {
-            showQuickFilter: true,
-          },
-        }}
-        localeText={trTR.components.MuiDataGrid.defaultProps.localeText}
-      />
-    </div>
+    {
+      loading ? <h1>loading...</h1> : <>
+        <Button variant="contained" color="info" onClick={() => navigate("/products/add")}>Add</Button>
+        <div style={{ height: 400, width: '100%' }}>
+          <DataGridPremium
+            rows={products}// rows yani bu datagridde gösterilecek veriler( data source)
+            columns={columns}// columns yani bu datagridde gösterilecek kolonlar
+            slots={{ toolbar: GridToolbar }}
+            slotProps={{
+              toolbar: {
+                showQuickFilter: true,
+              },
+            }}
+            localeText={trTR.components.MuiDataGrid.defaultProps.localeText}
+          />
+        </div>
+      </>
+    }
   </>
 }
 
