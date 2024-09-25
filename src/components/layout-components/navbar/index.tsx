@@ -5,9 +5,9 @@ function Navbar() {
   return <>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-
-        <ul>
+        <ul style={{display:'flex', justifyContent:"space-evenly"}}>
           <li><Link to='/products'>Products</Link></li>
+          <li><Link to='/suppliers'>Suppliers</Link></li>
         </ul>
 
       </AppBar>
