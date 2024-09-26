@@ -7,10 +7,13 @@ import ListSWR from './pages/product/list/ListSWR'
 import SupplierRoutes from './pages/supplier'
 import styled from 'styled-components'
 import Favorites from './pages/favorites'
+import GButton from './components/core-components/button/GButton'
+import CounterHome from './pages/counter/CounterHome'
+import CounterOperation from './pages/counter/CounterOperation'
 
 function App() {
 
-
+  
   return <>
 
     {/* <Title>React Query Example</Title> */}
@@ -20,6 +23,8 @@ function App() {
         <Route path='/products/*' element={<ProductRoutes />} />
         <Route path='/suppliers/*' element={<SupplierRoutes />} />
         <Route path='/favorites' element={<Favorites />} />
+        <Route path='/counter-home' element={<CounterHome />} /> 
+        <Route path='/counter-operation' element={<CounterOperation />} />
       </Routes>
     </Container>
 

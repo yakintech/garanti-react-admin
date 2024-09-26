@@ -22,6 +22,8 @@ function Navbar() {
           <li><Link to='/favorites'>Favorites
             <span style={{ color: 'red' }}>({favorites.length})</span>
           </Link></li>
+          <li><Link to='/counter-home'>Counter</Link></li>
+          <li><Link to='/counter-operation'>Counter Operation</Link></li>
         </ul>
       </AppBar>
     </Box>

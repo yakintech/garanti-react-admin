@@ -20,3 +20,11 @@ https://swr.vercel.app/
 React Query
 https://tanstack.com/query/latest/docs/framework/react/overview
 
+
+
+Redux toolkit
+https://redux-toolkit.js.org/introduction/getting-started
+
+Redux Devtools Ext
+https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
+Bu extenion global state durumunu görmemizi ve manipüle etmemizi sağlar
