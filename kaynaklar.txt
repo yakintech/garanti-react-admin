@@ -5,3 +5,18 @@ https://www.youtube.com/watch?v=_s15i3MoAyE
 https://flexboxfroggy.com/
 
 
+Reactjs Styling
+https://blog.logrocket.com/styling-react-6-ways-style-react-apps/
+
+Style Component
+https://styled-components.com/
+
+Sass Documentation
+https://sass-lang.com/documentation/
+
+
+Data Fetching ve Hooks Libraries
+https://swr.vercel.app/
+React Query
+https://tanstack.com/query/latest/docs/framework/react/overview
+
