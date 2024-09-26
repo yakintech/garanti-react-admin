@@ -6,6 +6,7 @@ import { Container } from '@mui/material'
 import ListSWR from './pages/product/list/ListSWR'
 import SupplierRoutes from './pages/supplier'
 import styled from 'styled-components'
+import Favorites from './pages/favorites'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path='/products/*' element={<ProductRoutes />} />
         <Route path='/suppliers/*' element={<SupplierRoutes />} />
+        <Route path='/favorites' element={<Favorites />} />
       </Routes>
     </Container>
 

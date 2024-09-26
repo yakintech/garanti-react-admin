@@ -1,17 +1,17 @@
 import { Button } from '@mui/material'
 import { DataGridPremium, GridColDef, GridRenderCellParams, GridToolbar } from '@mui/x-data-grid-premium'
 import { trTR } from '@mui/x-data-grid/locales';
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { axiosInstance } from '../../../config/axiosInstance'
 import { useNavigate } from 'react-router-dom';
 import { useProducts } from '../../../hooks/data/product/useProducts';
+import { FavoritesContext } from '../../../context/FavoritesContext';
+
 
 function List() {
 
   const { products, loading, error } = useProducts()
-
-
-
+  const { favOperation, favorites } = useContext(FavoritesContext)
 
   // const [products, setproducts] = useState([])
 
@@ -41,6 +41,7 @@ function List() {
         })
     }
   }
+
 
 
   let columns: GridColDef[] = [
@@ -75,9 +76,18 @@ function List() {
     {
       field: "Delete",
       headerName: "Delete",
-      flex: 1,
+      flex: 1.5,
       renderCell: (params: GridRenderCellParams) => {
         return <Button onClick={() => deleteProduct(params.row.id)} variant="contained" color="error">Delete</Button>
+      }
+    },
+    {
+      field: "Favorites",
+      headerName: "Favorites",
+      flex: 2.5,
+      renderCell: (params: GridRenderCellParams) => {
+        let favCheck = favorites.find((fav: any) => fav.id == params.row.id)
+        return <Button onClick={() => favOperation(params.row)} variant="contained" color={favCheck ? "secondary" : "primary"}>{favCheck ? "Remove from" : "Add to"} Fav</Button>
       }
     }
   ]
