@@ -1,0 +1,1 @@
+Stillendirme işlemlerinde eğer component büyükse o componente ait bir style.css VEYA style.module.css dosyası o dizinde oluşturulur

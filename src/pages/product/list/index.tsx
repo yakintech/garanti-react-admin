@@ -87,6 +87,7 @@ function List() {
     {
       loading ? <h1>loading...</h1> : <>
         <Button variant="contained" color="info" onClick={() => navigate("/products/add")}>Add</Button>
+        <hr />
         <div style={{ height: 400, width: '100%' }}>
           <DataGridPremium
             rows={products}// rows yani bu datagridde gösterilecek veriler( data source)
